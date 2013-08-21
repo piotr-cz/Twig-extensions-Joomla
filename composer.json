@@ -1,0 +1,31 @@
+{
+	"name"				: "piotr-cz/twig-extensions-joomla",
+	"type"				: "library",
+	"version"			: "0.3",
+
+	"description"		: "Joomla-Framework-Language bridge",
+	"keywords"			: ["i18n", "Joomla", "Language"],
+	"homepage"			: "https://github.com/piotr-cz/Twig-extensions-Joomla",
+	"licence"			: "GPL-2.0+",
+	"authors" 			: [
+		{
+			"name"				: "Piotr Konieczny",
+			"email"				: "hello@piotr.cz"
+		}
+		
+	],
+
+	"require"			: {
+		"php"				: ">=5.3*,
+		"twig/twig"			: "~1.0",
+		"joomla/framework"	: ">=1.0-beta2",
+	},
+
+	"autoload"			: {
+		"psr-0"				: {
+			"TwigJoomla"			: "src/"
+		}
+	},
+
+	"minimum-stability"	: "dev"
+}
