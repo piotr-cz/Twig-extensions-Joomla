@@ -29,14 +29,14 @@ $loader = new \Twig_Loader_Filesystem(JPATH_TEMPLATES);
 $twig = new \Twig_Environment($loader, $array());
 
 // Register Extension
-$twig->addExension(new \PiotrCz\TwigJoomla\Extension\TextExtension());
+$twig->addExension(new \TwigJoomla\Extension\TextExtension);
 
 $template = $twig->loadTemplate('test.twig');
 echo $template->render();
 ```
 
 
-Extension is able to call any public method of Text (_, 'sprintf', ...).
+Extension is able to call any public method of Text (like `Text::_()`, `Text::sprintf()`, ...).
 
 Use filter in your templates:
 
