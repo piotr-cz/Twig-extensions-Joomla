@@ -50,12 +50,12 @@ Twig Template:
 
 Language file:
 ```INI
-IMATEIT 	= "I made it!"
-```INI
+IMADEIT 	= "I made it!"
+```
 
 Result:
 ```
-Sample translation: I made it!
+I made it!
 ```
 
 
