@@ -6,14 +6,35 @@ Extension provides new filter to allow using of Joomla-Framework Language packag
 
 ## Installation
 
-Update your `composer.json`:
+Update requires in your `composer.json`:
 
 ```JSON
-{
 	"require": {
-		"piotr-cz/twig-extension-joomla": "dev-master"
+		"piotr-cz/twig-extensions-joomla": "dev-master"
 	}
-}
+```
+
+and add repository manually as the it's not a [packagist](https://packagist.org) yet:
+```JSON
+
+	"repositories"		: [
+		{
+			"type"			: "package",
+			"package"		: {
+				"name"			: "piotr-cz/twig-extensions-joomla",
+				"version"		: "master",
+				"source"		: {
+					"url"			: "https://github.com/piotr-cz/Twig-extensions-Joomla.git",
+					"type"			: "git",
+					"reference"		: "master"
+				},
+				"autoload"		: {
+					"psr-0"				: { "TwigJoomla"	: ["src/"] }
+				}
+			}
+		}
+		
+	]
 ```
 
 
