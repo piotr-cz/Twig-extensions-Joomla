@@ -22,23 +22,17 @@ use Joomla\Language\Text
 class TextExtension extends AbstractExtension
 {
 	/**
-	 * Joomla-framework class to call
-	 *
-	 * @var string
+	 * @inheritDoc
 	 */
 	protected $jclass = '\\Joomla\\Language\\Text';
 
 	/**
-	 * Default method
-	 *
-	 * @var string
+	 * @inheritDoc
 	 */
 	protected $defaultMethod = '_';
 
 	/**
-	 * Returns the name of the extension.
-	 *
-	 * @return string The extension name
+	 * @inheritDoc
 	 */
 	public function getName()
 	{

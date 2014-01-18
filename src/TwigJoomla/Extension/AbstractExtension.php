@@ -11,6 +11,9 @@
 
 namespace TwigJoomla\Extension;
 
+/**
+ * Abstract extension class for Joomla packages
+ */
 class AbstractExtension extends \Twig_Extension implements \Twig_ExtensionInterface
 {
 	/**
@@ -21,7 +24,7 @@ class AbstractExtension extends \Twig_Extension implements \Twig_ExtensionInterf
 	protected $jclass;
 
 	/**
-	 * Default method
+	 * Default method when none provided
 	 *
 	 * @var string
 	 */
@@ -84,7 +87,5 @@ class AbstractExtension extends \Twig_Extension implements \Twig_ExtensionInterf
 	 *
 	 * @return string The extension name
 	 */
-	public function getName()
-	{
-	}
+	abstract public function getName();
 }
