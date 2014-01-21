@@ -1,7 +1,7 @@
 Joomla Language Twig Extension
 ==============================
 
-Extension provides new filter to allow using of Joomla-Framework Language package in [Twig][1] templates.
+Extension provides new filter to allow using of [Joomla-Framework][2] [Language package][3] in [Twig][1] templates.
 
 
 ## Installation
@@ -10,6 +10,7 @@ Update requires in your `composer.json`:
 
 ```JSON
 	"require": {
+		"joomla/language": "dev-master",
 		"piotr-cz/twig-extensions-joomla": "dev-master"
 	}
 ```
@@ -103,3 +104,5 @@ This extension is released under the MIT License
 
 
 [1]: http://twig.sensiolabs.org
+[2]: http://framework.joomla.org
+[3]: https://github.com/joomla/joomla-framework/tree/staging/src/Joomla/Language
