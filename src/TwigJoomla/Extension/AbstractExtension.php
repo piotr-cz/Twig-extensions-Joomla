@@ -14,7 +14,7 @@ namespace TwigJoomla\Extension;
 /**
  * Abstract extension class for Joomla packages
  */
-class AbstractExtension extends \Twig_Extension implements \Twig_ExtensionInterface
+abstract class AbstractExtension extends \Twig_Extension implements \Twig_ExtensionInterface
 {
 	/**
 	 * Joomla-Framework class to call
