@@ -10,8 +10,9 @@ Update requires in your `composer.json`:
 
 ```JSON
 	"require": {
-		"joomla/language": "dev-master",
-		"piotr-cz/twig-extensions-joomla": "dev-master"
+		"joomla/language"	: "1.@stable",
+		"twig/twig"			: "~1.0",
+		"piotr-cz/twig-extensions-joomla": "0.4"
 	}
 ```
 
@@ -34,7 +35,6 @@ and add repository manually as the it's not a [packagist](https://packagist.org)
 				}
 			}
 		}
-		
 	]
 ```
 
@@ -80,6 +80,10 @@ Result:
 I made it!
 ```
 
+
+### Application
+
+See [Joomla-Framework/Language](https://github.com/joomla-framework/language) package for instructions on how to setup the `Language` package in your application.
 
 ### Sprintf
 
