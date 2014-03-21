@@ -9,16 +9,18 @@ Extension provides new filter to allow using of [Joomla-Framework][2] [Language 
 Update requires in your `composer.json`:
 
 ```JSON
+{
 	"require": {
 		"joomla/language"	: "1.@stable",
 		"twig/twig"			: "~1.0",
 		"piotr-cz/twig-extensions-joomla": "0.4"
 	}
+}
 ```
 
 and add repository manually as the it's not a [packagist](https://packagist.org) yet:
 ```JSON
-
+{
 	"repositories"		: [
 		{
 			"type"			: "package",
@@ -36,6 +38,7 @@ and add repository manually as the it's not a [packagist](https://packagist.org)
 			}
 		}
 	]
+}
 ```
 
 
@@ -48,11 +51,12 @@ Add the extension to the twig environment:
 ```PHP
 // Configure Twig
 $loader = new \Twig_Loader_Filesystem(JPATH_TEMPLATES);
-$twig = new \Twig_Environment($loader, $array());
+$twig = new \Twig_Environment($loader, $options = array());
 
 // Register Extension
 $twig->addExension(new \TwigJoomla\Extension\TextExtension);
 
+// Render Template
 $template = $twig->loadTemplate('test.twig');
 echo $template->render();
 ```
