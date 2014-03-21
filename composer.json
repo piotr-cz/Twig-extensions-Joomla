@@ -27,5 +27,9 @@
 		}
 	},
 
-	"minimum-stability"	: "dev"
+	"minimum-stability"	: "dev",
+
+	"archive": {
+		"exclude" : ["/tests", "/phpunit.xml.dist", "/.travis"]
+	}
 }
