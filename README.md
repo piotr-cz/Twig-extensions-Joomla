@@ -13,7 +13,7 @@ Update requires in your `composer.json`:
 	"require": {
 		"joomla/language"	: "1.@stable",
 		"twig/twig"			: "~1.0",
-		"piotr-cz/twig-extensions-joomla": "0.4"
+		"piotr-cz/twig-extensions-joomla": "dev-master"
 	}
 }
 ```
@@ -33,7 +33,9 @@ and add repository manually as the it's not a [packagist](https://packagist.org)
 					"reference"		: "master"
 				},
 				"autoload"		: {
-					"psr-0"				: { "TwigJoomla"	: ["src/"] }
+					"psr-4"			: { 
+						"TwigJoomla\\Extension\\": "src/"
+					}
 				}
 			}
 		}
@@ -54,7 +56,7 @@ $loader = new \Twig_Loader_Filesystem(JPATH_TEMPLATES);
 $twig = new \Twig_Environment($loader, $options = array());
 
 // Register Extension
-$twig->addExension(new \TwigJoomla\Extension\TextExtension);
+$twig->addExtension(new \TwigJoomla\Extension\TextExtension);
 
 // Render Template
 $template = $twig->loadTemplate('test.twig');
