@@ -1,7 +1,7 @@
 {
 	"name"				: "piotr-cz/twig-extensions-joomla",
 	"type"				: "library",
-	"version"			: "0.4",
+	"version"			: "0.4.1",
 
 	"description"		: "Joomla-Framework-Language bridge",
 	"keywords"			: ["i18n", "Joomla", "Language"],
@@ -12,7 +12,6 @@
 			"name"				: "Piotr Konieczny",
 			"email"				: "hello@piotr.cz"
 		}
-		
 	],
 
 	"require"			: {
@@ -22,14 +21,13 @@
 	},
 
 	"autoload"			: {
-		"psr-0"				: {
-			"TwigJoomla"			: "src/"
+		"psr-4"				: {
+			"TwigJoomla\\Extension\\": "src/"
 		}
 	},
 
 	"minimum-stability"	: "dev",
 
 	"archive": {
-		"exclude" : ["/tests", "/phpunit.xml.dist", "/.travis"]
 	}
 }
