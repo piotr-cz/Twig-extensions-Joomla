@@ -18,31 +18,6 @@ Update requires in your `composer.json`:
 }
 ```
 
-and add repository manually as the it's not a [packagist](https://packagist.org) yet:
-```JSON
-{
-	"repositories"		: [
-		{
-			"type"			: "package",
-			"package"		: {
-				"name"			: "piotr-cz/twig-extensions-joomla",
-				"version"		: "master",
-				"source"		: {
-					"url"			: "https://github.com/piotr-cz/Twig-extensions-Joomla.git",
-					"type"			: "git",
-					"reference"		: "master"
-				},
-				"autoload"		: {
-					"psr-4"			: { 
-						"TwigJoomla\\Extension\\": "src/"
-					}
-				}
-			}
-		}
-	]
-}
-```
-
 
 ## Usage
 
