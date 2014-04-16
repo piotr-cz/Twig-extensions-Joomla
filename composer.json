@@ -1,7 +1,7 @@
 {
 	"name"				: "piotr-cz/twig-extensions-joomla",
 	"type"				: "library",
-	"version"			: "0.4.1",
+	"version"			: "1.0.0",
 
 	"description"		: "Twig - Joomla Framework Language bridge",
 	"keywords"			: ["i18n", "Joomla", "Language", "Twig"],

@@ -6,14 +6,12 @@ Extension provides new filter to allow using of [Joomla-Framework][2] [Language 
 
 ## Installation
 
-Update requires in your `composer.json`:
+Add require to your `composer.json`:
 
 ```JSON
 {
 	"require": {
-		"joomla/language"	: "1.@stable",
-		"twig/twig"			: "~1.0",
-		"piotr-cz/twig-extensions-joomla": "dev-master"
+		"piotr-cz/twig-extensions-joomla": "~1.0"
 	}
 }
 ```
