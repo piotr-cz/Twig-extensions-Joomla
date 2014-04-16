@@ -6,7 +6,7 @@
 	"description"		: "Twig - Joomla Framework Language bridge",
 	"keywords"			: ["i18n", "Joomla", "Language", "Twig"],
 	"homepage"			: "https://github.com/piotr-cz/Twig-extensions-Joomla",
-	"licence"			: ["GPL-2.0+","LGPL-2.1+"],
+	"license"			: ["LGPL-2.1+"],
 	"authors" 			: [
 		{
 			"name"				: "Piotr Konieczny",
