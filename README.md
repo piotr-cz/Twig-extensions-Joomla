@@ -73,7 +73,7 @@ Use filter in your templates:
 
 Twig Template:
 ```TWIG
-{{ "IMADEIT"|jtext }}
+{{ "IMADEIT" | jtext }}
 ```
 
 Language file:
@@ -95,7 +95,7 @@ See [Joomla-Framework/Language](https://github.com/joomla-framework/language) pa
 
 Twig template:
 ```TWIG
-{{ "HELLOW"|jtext('sprintf', 'World') }}
+{{ "HELLOW" | jtext('sprintf', 'World') }}
 ```
 
 Language file:
