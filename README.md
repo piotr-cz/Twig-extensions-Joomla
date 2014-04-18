@@ -17,9 +17,11 @@ Add require to your `composer.json`:
 ```
 
 
-## Usage
+## Text extension
 
 It's assumed that you will use Composer to handle autoloading.
+
+### Setup
 
 Add the extension to the twig environment:
 
@@ -42,7 +44,7 @@ Extension is able to call any public method of Text (like `Text::_()`, `Text::sp
 Use filter in your templates:
 
 
-### Text
+### The `_` method
 
 Twig Template:
 ```TWIG
@@ -60,11 +62,7 @@ I made it!
 ```
 
 
-### Application
-
-See [Joomla-Framework/Language](https://github.com/joomla-framework/language) package for instructions on how to setup the `Language` package in your application.
-
-### Sprintf
+### The `sprintf` method
 
 Twig template:
 ```TWIG
@@ -82,8 +80,44 @@ Hello World!
 ```
 
 
+## Date extension
+
+This extension allows to use localised date output and instead of [PHP intl](http://php.net/intl) extension uses [Language package][3].
+Crucial functions imported from of [JDate package](https://github.com/joomla/joomla-platform/blob/staging/libraries/joomla/date/date.php).
+
+### Setup
+
+```PHP
+$twig->addExtension(new \Twigoomla\Extension\DateExtension($config->get('timezone')));
+```
+
+### Usage
+
+Twig template:
+```TWIG
+{{ event.on | jdate('l, j. F Y') }}
+```
+
+Language File:
+```INI
+SUNDAY		="neděle"
+JUNE		="červen"
+```
+
+Result:
+```
+neděle, 1. červen 2014
+```
+
+
+
+## Application setup
+
+See [Joomla-Framework/Language](https://github.com/joomla-framework/language) package for instructions on how to setup the `Language` package in your application.
+
+
 ## Licence
-This extension is released under the MIT License
+This extensions are released under the MIT License, except Date extension which is released under GPL2
 
 
 [1]: http://twig.sensiolabs.org
