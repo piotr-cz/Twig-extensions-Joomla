@@ -21,7 +21,7 @@ abstract class AbstractExtension extends \Twig_Extension implements \Twig_Extens
 	 *
 	 * @var string
 	 */
-	protected $jclass;
+	protected $jClass;
 
 	/**
 	 * Default method when none provided
@@ -34,11 +34,18 @@ abstract class AbstractExtension extends \Twig_Extension implements \Twig_Extens
 	 * Constructor.
 	 *
 	 * @param $instance [optional]
+	 *
+	 * @thorws \RuntimeException
 	 */
 	public function __construct($instance = null)
 	{
-		if (!class_exists($this->jclass)) {
-			throw new \RuntimeException(sprintf('The %s class is needed to use text-based filters.', $this->jclass));
+		// Set handler
+		if (is_object($instance)) {
+			$this->jClass = $instance;
+		}
+		// Or use static methods
+		if (!class_exists($this->jClass)) {
+			throw new \RuntimeException(sprintf('The %s class is required to use text-based filters.', $this->jClass));
 		}
 	}
 
@@ -63,6 +70,8 @@ abstract class AbstractExtension extends \Twig_Extension implements \Twig_Extens
 	 * @param string $string String to transform
 	 *
 	 * @return string Transformed
+	 *
+	 * @throws \UnexpectedValueException
 	 */
 	public function filter($string, $method = null)
 	{
@@ -70,16 +79,17 @@ abstract class AbstractExtension extends \Twig_Extension implements \Twig_Extens
 		$method = $method ?: $this->defaultMethod;
 
 		// Check if method is callable
-		if (!is_callable(array($this->jclass, $method), false, $callable_name))
+		if (!is_callable(array($this->jClass, $method), false, $callable_name))
 		{
-			throw new \UnexpectedValueException(sprintf('Cannot execute method %s.', $method));
+			throw new \UnexpectedValueException(sprintf('Unable to execute method %s of %s.', $method, $this->getName()));
 		}
 
+		// Retrieve overloaded arguments without method
 		$arguments = func_get_args();
 		unset ($arguments[1]);
 
 		// Execute
-		return call_user_func_array(array($this->jclass, $method), $arguments);
+		return call_user_func_array(array($this->jClass, $method), $arguments);
 	}
 
 	/**
