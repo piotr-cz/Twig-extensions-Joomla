@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false"
-         bootstrap="../../autoload.php"
->
-    <testsuites>
-        <testsuite name="Piotr-cz Joomla Text Test Suite">
-            <directory>./tests/</directory>
-        </testsuite>
-    </testsuites>
+<phpunit bootstrap="vendor/autoload.php" colors="false">
+	<testsuites>
+		<testsuite name="Unit">
+			<directory>Tests</directory>
+		</testsuite>
+	</testsuites>
 </phpunit>
