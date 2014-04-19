@@ -44,7 +44,7 @@ abstract class AbstractExtension extends \Twig_Extension implements \Twig_Extens
 			$this->jClass = $instance;
 		}
 		// Or use static methods
-		if (!class_exists($this->jClass)) {
+		else if (!class_exists($this->jClass)) {
 			throw new \RuntimeException(sprintf('The %s class is required to use text-based filters.', $this->jClass));
 		}
 	}

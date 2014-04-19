@@ -116,6 +116,13 @@ neděle, 1. červen 2014
 See [Joomla-Framework/Language](https://github.com/joomla-framework/language) package for instructions on how to setup the `Language` package in your application.
 
 
+## Running tests
+
+```
+>composer install
+>phpunit
+```
+
 ## Licence
 This extensions are released under the MIT License, except Date extension which is released under GPL2
 
