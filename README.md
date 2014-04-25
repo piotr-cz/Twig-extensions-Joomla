@@ -1,7 +1,5 @@
-Joomla Language Twig Extension
-==============================
-
-[![Build Status](https://travis-ci.org/piotr-cz/Twig-extensions-Joomla.svg?branch=master)](https://travis-ci.org/piotr-cz/Twig-extensions-Joomla)
+Twig Extensions - Joomla Framework [![Build Status](https://travis-ci.org/piotr-cz/Twig-extensions-Joomla.svg?branch=master)](https://travis-ci.org/piotr-cz/Twig-extensions-Joomla)
+===============================
 
 Extensions provide filters to allow using of [Joomla-Framework][2] packages such as [Language package][3] in [Twig][1] templates.
 
@@ -40,13 +38,17 @@ $template = $twig->loadTemplate('test.twig');
 echo $template->render();
 ```
 
+### Usage
 
 Extension is able to call any public method of Text (like `Text::_()`, `Text::sprintf()`, ...).
 
-Use filter in your templates:
+**Accepted Parameters**
+
+- `$method` Text method
+- Text arguments
 
 
-### The `_` method
+#### The `_` method (default)
 
 Twig Template:
 ```twig
@@ -64,19 +66,19 @@ I made it!
 ```
 
 
-### The `sprintf` method
+#### The `sprintf` method
 
-Twig template:
+_Twig template_
 ```twig
 {{ "HELLOW" | jtext('sprintf', 'World') }}
 ```
 
-Language file:
+_Language file_
 ```ini
 HELLOW		="Hello %s!"
 ```
 
-Result:
+_Result_
 ```
 Hello World!
 ```
@@ -87,30 +89,37 @@ Hello World!
 This extension allows to use localised date output and instead of [PHP intl](http://php.net/intl) extension uses [Language package][3].
 Crucial functions imported from of [JDate package](https://github.com/joomla/joomla-platform/blob/staging/libraries/joomla/date/date.php).
 
+
 ### Setup
 
 ```php
 $twig->addExtension(new \Twigoomla\Extension\DateExtension($config->get('timezone')));
 ```
 
+
 ### Usage
 
-Twig template:
+**Accepted Parameters**
+
+- `$format` [DateTime Format](http://cz1.php.net/manual/en/function.date.php)
+- `$timezone` String or DateTimeZone object (optional)
+
+
+_Twig template_
 ```twig
 {{ event.on | jdate('l, j. F Y') }}
 ```
 
-Language File:
+_Language File_
 ```ini
 SUNDAY		="neděle"
 JUNE		="červen"
 ```
 
-Result:
+_Result_
 ```
 neděle, 1. červen 2014
 ```
-
 
 
 ## Application setup
