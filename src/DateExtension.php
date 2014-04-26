@@ -84,14 +84,15 @@ class DateExtension extends \Twig_Extension implements \Twig_ExtensionInterface
 	/**
 	 * Format to string
 	 *
-	 * @param \DateTime $dateTime
+	 * @param string|\DateTime $dateTime
 	 * @param string|\DateTimeZone $format
 	 *
 	 * @return string
 	 *
 	 * @since 1.1
+	 * @throws \Exception failed to parse string
 	 */
-	public function format(\DateTime $dateTime, $format = null, $timezone = null)
+	public function format($dateTime, $format = null, $timezone = null)
 	{
 		// Do string replacements for date format options that can be translated.
 		$format = preg_replace('/(^|[^\\\])D/', "\\1" . self::DAY_ABBR, $format);
@@ -101,7 +102,15 @@ class DateExtension extends \Twig_Extension implements \Twig_ExtensionInterface
 
 
 		// Clone to allow timezone operations
-		$dateTimeInZone = clone $dateTime;
+		if ($dateTime instanceof \DateTime)
+		{
+			$dateTimeInZone = clone $dateTime;
+		}
+		// Or create from string
+		else
+		{
+			$dateTimeInZone = new \DateTime($dateTime);
+		}
 
 		// Set timezone string argument
 		if ($timezone instanceof \DateTimeZone)
@@ -109,7 +118,7 @@ class DateExtension extends \Twig_Extension implements \Twig_ExtensionInterface
 			$dateTimeInZone->setTimeZone($timezone);
 		}
 		// Set timezone DateTimeZone argument
-		else if ($timezone)
+		else if (is_string($timezone))
 		{
 			$dateTimeInZone->setTimeZone(new \DateTimeZone($timezone));
 		}
@@ -127,22 +136,22 @@ class DateExtension extends \Twig_Extension implements \Twig_ExtensionInterface
 		// Manually modify the month and day strings in the formatted time.
 		if (strpos($return, self::DAY_ABBR) !== false)
 		{
-			$return = str_replace(self::DAY_ABBR, $this->dayToString($dateTime->format('w'), true), $return);
+			$return = str_replace(self::DAY_ABBR, $this->dayToString($dateTimeInZone->format('w'), true), $return);
 		}
 
 		if (strpos($return, self::DAY_NAME) !== false)
 		{
-			$return = str_replace(self::DAY_NAME, $this->dayToString($dateTime->format('w')), $return);
+			$return = str_replace(self::DAY_NAME, $this->dayToString($dateTimeInZone->format('w')), $return);
 		}
 
 		if (strpos($return, self::MONTH_ABBR) !== false)
 		{
-			$return = str_replace(self::MONTH_ABBR, $this->monthToString($dateTime->format('n'), true), $return);
+			$return = str_replace(self::MONTH_ABBR, $this->monthToString($dateTimeInZone->format('n'), true), $return);
 		}
 
 		if (strpos($return, self::MONTH_NAME) !== false)
 		{
-			$return = str_replace(self::MONTH_NAME, $this->monthToString($dateTime->format('n')), $return);
+			$return = str_replace(self::MONTH_NAME, $this->monthToString($dateTimeInZone->format('n')), $return);
 		}
 
 
